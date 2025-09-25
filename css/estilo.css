@@ -1,98 +1,95 @@
 /* Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    display: flex;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Wrapper com borda */
+.wrapper {
+  max-width: 1200px;
+  width: 100%;
+  border: 3px solid #000;
+  padding: 10px;
+}
+
+/* Cabeçalho */
+.topo {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Container principal */
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Colunas laterais */
+.coluna-esquerda,
+.coluna-direita {
+  background: #ccc;
+  padding: 20px;
+  text-align: center;
+  flex: 0 0 300px; /* largura fixa */
+  border: 2px solid #000;
+}
+
+/* Conteúdo central em FLEX */
+.conteudo {
+  display: flex;
+  flex-wrap: wrap;           /* permite quebrar linha */
+  justify-content: center;   /* centraliza as caixas */
+  max-width: 600px;          /* limite para 2 caixas por linha */
+}
+
+.caixa {
+  width: 250px;              /* largura fixa */
+  background: #eee;
+  border: 2px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;              /* espaçamento entre as caixas */
+}
+
+.caixa img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsividade - Tablet */
+@media (max-width: 992px) {
+  .container {
     flex-direction: column;
     align-items: center;
   }
-  
-  /* Wrapper com borda */
-  .wrapper {
-    max-width: 1200px;
-    width: 100%;
-    border: 3px solid #000; /* borda ao redor */
-    padding: 10px;
-  }
-  
-  /* Cabeçalho */
-  .topo {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  
-  /* Container principal */
-  .container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  
-  /* Colunas laterais (substituindo aside) */
+
   .coluna-esquerda,
   .coluna-direita {
-    background: #ccc;
-    padding: 20px;
-    text-align: center;
-    flex: 0 0 300px; /* largura fixa */
-    border: 2px solid #000;
+    width: 100%;
+    max-width: 600px;
   }
-  
-  /* Conteúdo central */
+
   .conteudo {
-    display: grid;
-    grid-template-columns: repeat(2, 250px);
-    grid-template-rows: repeat(2, auto);
-    gap: 20px;
-    justify-content: center;
-    align-content: start;
+    max-width: 600px;
   }
-  
-  .box {
-    background: #eee;
-    border: 2px solid #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+/* Responsividade - Celular */
+@media (max-width: 600px) {
+  .conteudo {
+    max-width: 250px; /* 1 coluna */
   }
-  
-  .box img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  /* Responsividade */
-  @media (max-width: 992px) {
-    .container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .coluna-esquerda,
-    .coluna-direita {
-      width: 100%;
-      max-width: 600px;
-    }
-  
-    .conteudo {
-      grid-template-columns: 1fr 1fr;
-      width: 100%;
-      max-width: 600px;
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .conteudo {
-      grid-template-columns: 1fr;
-    }
-  }
-  
+}
